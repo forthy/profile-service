@@ -48,6 +48,9 @@ func TestRegisterWithShow(t *testing.T) {
 					return assert.Fail(t, e.Error())
 				},
 				func(p PR.Profile) bool {
+					assert.Equal(t, "XU-1352", p.Id.Value)
+					assert.Equal(t, "1.24.1", p.Version.Value)
+					assert.Equal(t, "EA", p.Domain.Title())
 					return assert.Equal(t, "XM-Data-Loader", p.Name.Value)
 				},
 			)(pe)
