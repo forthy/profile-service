@@ -22,3 +22,8 @@ func TestEmailString(t *testing.T) {
 	assert.True(t, ShouldBeEmail("test@example.com"))
 	assert.False(t, ShouldBeEmail("invalid-email"))
 }
+
+func TestSemVerString(t *testing.T) {
+	assert.True(t, ShouldBeSemVer("1.0.0"))
+	assert.False(t, ShouldBeSemVer("invalid-semver"))
+}

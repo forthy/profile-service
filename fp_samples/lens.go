@@ -33,6 +33,6 @@ func (addr *Address) SetStreet(s *Street) *Address {
 }
 
 var (
-	StreetLens = OL.MakeLensRef((*Street).GetName, (*Street).SetName)
-	AddrLens   = OL.MakeLensRef((*Address).GetStreet, (*Address).SetStreet)
+	StreetNameLens = OL.MakeLensRef((*Street).GetName, (*Street).SetName)
+	StreetLens     = OL.MakeLensRef((*Address).GetStreet, (*Address).SetStreet)
 )

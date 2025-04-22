@@ -4,6 +4,8 @@ import (
 	"regexp"
 	"strings"
 	"unicode/utf8"
+
+	SM "github.com/Masterminds/semver/v3"
 )
 
 func NotEmpty(s string) bool {
@@ -29,4 +31,11 @@ func ShouldMatch(re *regexp.Regexp) func(string) bool {
 
 func ShouldBeEmail(s string) bool {
 	return ShouldMatch(regexp.MustCompile(`^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$`))(s)
+}
+
+func ShouldBeSemVer(s string) bool {
+	if _, err := SM.StrictNewVersion(s); err != nil {
+		return false
+	}
+	return true
 }
